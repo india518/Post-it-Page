@@ -19,24 +19,26 @@
 						$(this).serialize(), //the data being sent
 						function(data){
 							//console.log(data);
-							$("#results").html(data.html);
+							//$("#note_container").html(data.html);
+							$("#note_container").append(data.html);
 						},
 						"json"	//data format
 					);
 					return false;
 				});
 				//display all database data on page load
-				$("#create_note").submit();
+				//
+				//$("#create_note").submit();
 
 			});
 		</script>
 	</head>
 	<body>
-		<div id="results"></div>
+		<div id="note_container"></div>
 
 		<form id="create_note" action="process.php" method="post">
 			<label for="note_description">Add a Note:</label>
-			<input type="text" id="note_description" name="note_description" />
+			<textarea id="note_description" name="note_description">Enter your note here...</textarea>
 			<input type="submit" value="Post It!" />
 		</form>
 
