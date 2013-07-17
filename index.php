@@ -36,7 +36,7 @@
 	</head>
 	<body>
 		<div id="container">
-			<h1>My Posts:</h1>
+			<h1>My Posted Notes:</h1>
 			<div id="note_container">
 				<!-- This will only run once, on page load -->
 				<?= display_notes() ?>

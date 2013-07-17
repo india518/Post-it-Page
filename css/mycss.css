@@ -7,6 +7,12 @@
 	padding: 0px;
 }
 
+h1 {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 15px 25px;
+}
+
 .clear {
 	clear: both;
 }
@@ -22,11 +28,33 @@
 
 #container {
 	margin: 10px;
-	padding: 5px;
 }
 
 #note_container {
-	/*display: inline;*/
-	margin: 10px;
+	margin: 10px 0px 15px 10px;
 	padding: 10px;
 }
+
+#create_note {
+	margin: 5px 20px;
+	padding: 5px;
+}
+	#create_note p {
+		margin: 5px 0px;
+		padding: 5px 0px;
+	}
+	#create_note label {
+		font-size: 16px;
+		font-weight: bold;
+	}
+	#create_note textarea {
+		height: 50px;
+		width: 150px;
+	}
+	#create_note input[type="submit"] {
+		background-color: yellow;
+		height: 20px;
+		width: 150px;
+	}
+
+
