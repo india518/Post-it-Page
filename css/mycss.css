@@ -19,15 +19,16 @@ h1 {
 .note {
 	background-color: yellow;
 	border: 1px solid silver;
-	display: inline;
-	height: 200px;
+	display: inline-block;
+	height: 150px;
 	margin: 5px;
 	padding: 10px;
-	width: 200px;
+	width: 150px;
 }
 
 #container {
 	margin: 10px;
+	overflow: hidden;
 }
 
 #note_container {

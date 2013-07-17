@@ -24,25 +24,12 @@
 	{
 		$notes = get_notes();
 
-		//$data = array();
 		$html = "";
 		foreach($notes as $note)
 		{
 			$html .= "<div class='note'>{$note['description']}</div>";
 		}
 		return $html;
-		//$data["html"] = $html;
-		//echo json_encode($data["html"]);
-	}
-
-	function parse_date($date_string)
-	{
-		//given: 07/01/2013, output 2013-07-01
-		$month = substr($date_string, 0, 2);
-		$day = substr($date_string, 3, 2);
-		$year = substr($date_string, 6, 4);
-		$formatted_date = $year . "-" . $month . "-" . $day;
-		return $formatted_date;
 	}
 
 ?>
