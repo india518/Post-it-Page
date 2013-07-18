@@ -57,6 +57,7 @@
 			<form id="create_note" action="process.php" method="post">
 				<!-- I don't wan to use a <br />, since that's bad practice -->
 				<div><label for="note_description">Add a Note:</label></div>
+				<div><input type="text" name="title" value="Title..." /></div>
 				<div><textarea id="note_description" name="note_description"></textarea></div>
 				<input type="hidden" name="action" value="post" />
 				<input type="submit" value="Post It!" />

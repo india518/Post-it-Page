@@ -7,12 +7,23 @@
 		//make a new note in the database
 		if (! empty($_POST["note_description"]))
 		{
+			$new_title = $_POST["title"];
 			$new_note = $_POST["note_description"];
-			create_note($new_note);
+			create_note($new_title, $new_note);
 			//now display it:
 			$data = display_notes();
 			echo json_encode($data);
 		}
+	}
+
+	if ($_POST["action"] == "edit")
+	{
+		//missing something here
+		// need a way to open the text and edit it!
+		$note_id = $_POST["note_id"];
+		edit_note($note_id);
+		$data = display_notes();
+		echo json_encode($data);
 	}
 
 	if ($_POST["action"] == "delete")

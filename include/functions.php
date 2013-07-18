@@ -2,16 +2,18 @@
 
 	function create_note($note)
 	{
+		$clean_title = mysql_real_escape_string($title);
 		$clean_note = mysql_real_escape_string($note);
-		$create_note_query = "INSERT INTO posts (description, created_at) VALUES ('{$note}', NOW())";
+		$create_note_query = "INSERT INTO posts (title, description, created_at) VALUES ('{$clean_title}', '{$clean_note}', NOW())";
 		mysql_query($create_note_query);
 		return TRUE; //don't know if we really need this or not...
 	}
 
 	function edit_note($note)
 	{
+		$clean_title = mysql_real_escape_string($title);
 		$clean_note = mysql_real_escape_string($note);
-		$edit_note_query = "INSERT INTO posts (description, updated_at) VALUES ('{$note}', NOW())";
+		$edit_note_query = "INSERT INTO posts (title, description, updated_at) VALUES ('{$clean_title}', '{$clean_note}', NOW())";
 		mysql_query($edit_note_query);
 		return TRUE;
 	}
@@ -47,7 +49,8 @@
 			$html .= "	<form action='process.php' method='post'>";
 			$html .= "		<input type='hidden' name='action' value='delete' />";
 			$html .= "		<input type='hidden' name='note_id' value='{$note['id']}' />";
-			$html .= "		<button class='delete' type='submit'>Delete Message</button>";
+			$html .= "		<button class='delete' type='submit'>Edit</button>";
+			$html .= "		<button class='delete' type='submit'>Delete</button>";
 			$html .= "	</form>";
 			$html .= "</div>";
 		}
