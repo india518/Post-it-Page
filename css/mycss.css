@@ -19,13 +19,14 @@ h1 {
 .note {
 	background-color: yellow;
 	border: 1px solid silver;
-	/*display: inline-block;*/
-	/*display: inline;*/
 	float: left;
 	height: 150px;
 	margin: 5px;
-	padding: 10px;
+	padding: 10px 5px;
 	width: 150px;
+}
+.note_body {
+	height: 140px;
 }
 
 #container {
@@ -37,6 +38,10 @@ h1 {
 	margin: 10px 0px 15px 10px;
 	padding: 10px;
 }
+	#note_container div form {
+		margin-bottom: 10px;
+		float: right;
+	}
 
 #create_note {
 	margin: 5px 20px;
@@ -52,10 +57,11 @@ h1 {
 	}
 	#create_note input[type="submit"] {
 		background-color: yellow;
-		height: 20px;
-		width: 150px;
+		height: 30px;
+		/*padding: 10px 0px;*/
+		width: 160px;
 	}
 #note_description {
 	height: 150px;
-	width: 150px;
+	width: 160px;
 }

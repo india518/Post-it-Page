@@ -1,15 +1,25 @@
 <?php
-
 	require("connection.php");
 	require("include/functions.php");
 
-	//make a new note in the database
-	if (! empty($_POST["note_description"]))
+	if ($_POST["action"] == "post")
 	{
-		$new_note = $_POST["note_description"];
-		make_note($new_note);
-		//now display it:
-		$data = "<div class='note'>{$new_note}</div>";
+		//make a new note in the database
+		if (! empty($_POST["note_description"]))
+		{
+			$new_note = $_POST["note_description"];
+			create_note($new_note);
+			//now display it:
+			$data = display_notes();
+			echo json_encode($data);
+		}
+	}
+
+	if ($_POST["action"] == "delete")
+	{
+		$note_id = $_POST["note_id"];
+		remove_note($note_id);
+		$data = display_notes();
 		echo json_encode($data);
 	}
 
@@ -18,5 +28,4 @@
 
 	//Note that we don't want this validation to trigger an error message
 	// on page load. Will have to figure out how to deal with that.
-
 ?>

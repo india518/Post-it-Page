@@ -1,14 +1,30 @@
 <?php
 
-	function make_note($note)
+	function create_note($note)
 	{
 		$clean_note = mysql_real_escape_string($note);
 		$create_note_query = "INSERT INTO posts (description, created_at) VALUES ('{$note}', NOW())";
-		//note: if/when we create an edit function, then:
-		//$query = "INSERT INTO posts (description, updated_at) VALUES ({$note}, NOW());"
-
 		mysql_query($create_note_query);
 		return TRUE; //don't know if we really need this or not...
+	}
+
+	function edit_note($note)
+	{
+		$clean_note = mysql_real_escape_string($note);
+		$edit_note_query = "INSERT INTO posts (description, updated_at) VALUES ('{$note}', NOW())";
+		mysql_query($edit_note_query);
+		return TRUE;
+	}
+
+	function remove_note($note_id)
+	{
+		$remove_note_query = "DELETE FROM posts where posts.id = '{$note_id}'";
+		//echo $note_id . "<br />";
+		//echo $remove_note_query;
+		//die();
+
+		mysql_query($remove_note_query);
+		return TRUE;
 	}
 
 	function get_notes()
@@ -26,9 +42,15 @@
 		$html = "";
 		foreach($notes as $note)
 		{
-			$html .= "<div class='note'>{$note['description']}</div>";
+			$html .= "<div class='note'>";
+			$html .= "	<p class='note_body'>{$note['description']}</p>";
+			$html .= "	<form action='process.php' method='post'>";
+			$html .= "		<input type='hidden' name='action' value='delete' />";
+			$html .= "		<input type='hidden' name='note_id' value='{$note['id']}' />";
+			$html .= "		<button class='delete' type='submit'>Delete Message</button>";
+			$html .= "	</form>";
+			$html .= "</div>";
 		}
 		return $html;
 	}
-
 ?>

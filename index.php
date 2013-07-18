@@ -20,7 +20,7 @@
 						$(this).attr("action"), //URL to send data
 						$(this).serialize(), //the data being sent
 						function(data){
-							$("#note_container").append(data);
+							$("#note_container").html(data);
 						},
 						"json"	//data format
 					);
@@ -28,6 +28,19 @@
 					this.reset(); //"This" is a javascript reference to this
 					// Another way to do the above command:
 					// document.getElementById("create_note").reset();
+					return false;
+				});
+				//this works for notes on page load,
+				//not for notes created after page load
+				$("#note_container").on("submit", "form", function(){
+					$.post(
+						$(this).attr("action"), //URL to send data
+						$(this).serialize(), //the data being sent
+						function(data){
+							$("#note_container").html(data);
+						},
+						"json"	//data format
+					);
 					return false;
 				});
 			});
@@ -45,6 +58,7 @@
 				<!-- I don't wan to use a <br />, since that's bad practice -->
 				<div><label for="note_description">Add a Note:</label></div>
 				<div><textarea id="note_description" name="note_description"></textarea></div>
+				<input type="hidden" name="action" value="post" />
 				<input type="submit" value="Post It!" />
 			</form>
 		</div>
