@@ -28,7 +28,7 @@ h1 {
 	.note h4 {
 		font-weight: bold;
 	}
-.note_body {
+.note_body, .edit_note_body{
 	height: 120px;
 }
 

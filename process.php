@@ -18,14 +18,12 @@
 
 	if ($_POST["action"] == "edit")
 	{
-		var_dump($_POST);
-		die();
-		//missing something here
-		// need a way to open the text and edit it!
 		$note_id = $_POST["note_id"];
-
-		//when we're done:
-		edit_note($note_id);
+		$note_description = $_POST["note_description"];
+		update_note($note_id, $note_description);
+		//note: we could just say
+		// update_note($_POST["note_id"], $_POST["note_description"]);
+		// but I think it's more readable with the variable names.
 		$data = display_notes();
 		echo json_encode($data);
 	}

@@ -1,30 +1,25 @@
 <?php
 
-	function create_note($title, $note)
+	function create_note($title, $note_text)
 	{
 		$clean_title = mysql_real_escape_string($title);
-		$clean_note = mysql_real_escape_string($note);
-		$create_note_query = "INSERT INTO posts (title, description, created_at) VALUES ('{$clean_title}', '{$clean_note}', NOW())";
+		$clean_note_text = mysql_real_escape_string($note);
+		$create_note_query = "INSERT INTO posts (title, description, created_at) VALUES ('{$clean_title}', '{$clean_note_text}', NOW())";
 		mysql_query($create_note_query);
 		return TRUE; //don't know if we really need this or not...
 	}
 
-	function edit_note($title, $note)
+	function update_note($note_id, $note_text)
 	{
-		$clean_title = mysql_real_escape_string($title);
-		$clean_note = mysql_real_escape_string($note);
-		$edit_note_query = "INSERT INTO posts (title, description, updated_at) VALUES ('{$clean_title}', '{$clean_note}', NOW())";
-		mysql_query($edit_note_query);
+		$clean_note_text = mysql_real_escape_string($note_text);
+		$update_note_query = "UPDATE posts SET description='{$clean_note_text}', updated_at=NOW() WHERE id='{$note_id}'";
+		mysql_query($update_note_query);
 		return TRUE;
 	}
 
 	function remove_note($note_id)
 	{
 		$remove_note_query = "DELETE FROM posts where posts.id = '{$note_id}'";
-		//echo $note_id . "<br />";
-		//echo $remove_note_query;
-		//die();
-
 		mysql_query($remove_note_query);
 		return TRUE;
 	}

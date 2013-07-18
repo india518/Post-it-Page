@@ -47,9 +47,9 @@
 					//alert("you clicked note " + $note_id);
 					//build an html string for the edit form
 					$edit_form = "<form action='process.php' method='post'>";
-					$edit_form += "	<div><textarea class='note_body'>" + $(this).text() + "</textarea></div>";
+					$edit_form += "	<textarea class='edit_note_body' name='note_description'>" + $(this).text() + "</textarea>";
 					$edit_form += "	<input type='hidden' name='action' value='edit' />";
-					$edit_form += "	<input type='hidden' name='note_id' value=" + $note_id + "/>";
+					$edit_form += "	<input type='hidden' name='note_id' value=" + $note_id + " />";
 					$edit_form += "	<button class='edit' type='submit'>Save Edit</button>";
 					$edit_form += "</form>";
 					//change this particular paragraph to the edit form
