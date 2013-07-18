@@ -23,7 +23,6 @@
 	function display_notes()
 	{
 		$notes = get_notes();
-
 		$html = "";
 		foreach($notes as $note)
 		{
