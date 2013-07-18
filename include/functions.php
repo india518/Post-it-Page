@@ -46,16 +46,11 @@
 		{
 			$html .= "<div class='note'>";
 			$html .= "	<h4>{$note['title']}</h4>";
-			$html .= "	<p class='note_body'>{$note['description']}</p>";
+			$html .= "	<p class='note_body' data-note_id='{$note['id']}'>{$note['description']}</p>";
 			$html .= "	<form action='process.php' method='post'>";
 			$html .= "		<input type='hidden' name='action' value='delete' />";
 			$html .= "		<input type='hidden' name='note_id' value='{$note['id']}' />";
 			$html .= "		<button class='delete' type='submit'>Delete</button>";
-			$html .= "	</form>";
-			$html .= "	<form action='process.php' method='post'>";
-			$html .= "		<input type='hidden' name='action' value='edit' />";
-			$html .= "		<input type='hidden' name='note_id' value='{$note['id']}' />";
-			$html .= "		<button class='delete' type='submit'>Edit</button>";
 			$html .= "	</form>";
 			$html .= "</div>";
 		}

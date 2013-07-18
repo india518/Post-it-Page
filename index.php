@@ -30,8 +30,6 @@
 					// document.getElementById("create_note").reset();
 					return false;
 				});
-				//this works for notes on page load,
-				//not for notes created after page load
 				$("#note_container").on("submit", "form", function(){
 					$.post(
 						$(this).attr("action"), //URL to send data
@@ -43,6 +41,21 @@
 					);
 					return false;
 				});
+				//for making existing notes edit-able
+				$(".note_body").on("click", function(){
+					$note_id = $(this).data("note_id");
+					//alert("you clicked note " + $note_id);
+					//build an html string for the edit form
+					$edit_form = "<form action='process.php' method='post'>";
+					$edit_form += "	<div><textarea class='note_body'>" + $(this).text() + "</textarea></div>";
+					$edit_form += "	<input type='hidden' name='action' value='edit' />";
+					$edit_form += "	<input type='hidden' name='note_id' value=" + $note_id + "/>";
+					$edit_form += "	<button class='edit' type='submit'>Save Edit</button>";
+					$edit_form += "</form>";
+					//change this particular paragraph to the edit form
+					$(this).replaceWith($edit_form);
+				});
+
 			});
 		</script>
 	</head>

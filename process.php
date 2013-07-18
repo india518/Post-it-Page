@@ -18,9 +18,13 @@
 
 	if ($_POST["action"] == "edit")
 	{
+		var_dump($_POST);
+		die();
 		//missing something here
 		// need a way to open the text and edit it!
 		$note_id = $_POST["note_id"];
+
+		//when we're done:
 		edit_note($note_id);
 		$data = display_notes();
 		echo json_encode($data);

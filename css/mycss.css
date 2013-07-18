@@ -29,7 +29,7 @@ h1 {
 		font-weight: bold;
 	}
 .note_body {
-	height: 125px;
+	height: 120px;
 }
 
 #container {
@@ -38,11 +38,15 @@ h1 {
 }
 
 #note_container {
-	margin: 10px 0px 15px 10px;
+	margin: 10px 0px 20px 10px;
 	padding: 10px;
 }
-	#note_container div form {
-		margin-bottom: 10px;
+	#note_container .edit {
+		margin-top: 5px;
+		float: left;
+	}
+	#note_container .delete {
+		margin-top: 5px;
 		float: right;
 	}
 
