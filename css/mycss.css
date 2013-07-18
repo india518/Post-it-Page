@@ -25,8 +25,11 @@ h1 {
 	padding: 10px 5px;
 	width: 150px;
 }
+	.note h4 {
+		font-weight: bold;
+	}
 .note_body {
-	height: 140px;
+	height: 125px;
 }
 
 #container {

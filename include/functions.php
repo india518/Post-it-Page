@@ -1,6 +1,6 @@
 <?php
 
-	function create_note($note)
+	function create_note($title, $note)
 	{
 		$clean_title = mysql_real_escape_string($title);
 		$clean_note = mysql_real_escape_string($note);
@@ -9,7 +9,7 @@
 		return TRUE; //don't know if we really need this or not...
 	}
 
-	function edit_note($note)
+	function edit_note($title, $note)
 	{
 		$clean_title = mysql_real_escape_string($title);
 		$clean_note = mysql_real_escape_string($note);
@@ -45,6 +45,7 @@
 		foreach($notes as $note)
 		{
 			$html .= "<div class='note'>";
+			$html .= "	<h4>{$note['title']}</h4>";
 			$html .= "	<p class='note_body'>{$note['description']}</p>";
 			$html .= "	<form action='process.php' method='post'>";
 			$html .= "		<input type='hidden' name='action' value='delete' />";
