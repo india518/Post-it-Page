@@ -19,7 +19,9 @@ h1 {
 .note {
 	background-color: yellow;
 	border: 1px solid silver;
-	display: inline-block;
+	/*display: inline-block;*/
+	/*display: inline;*/
+	float: left;
 	height: 150px;
 	margin: 5px;
 	padding: 10px;
@@ -40,7 +42,7 @@ h1 {
 	margin: 5px 20px;
 	padding: 5px;
 }
-	#create_note p {
+	#create_note div {
 		margin: 5px 0px;
 		padding: 5px 0px;
 	}
@@ -48,14 +50,12 @@ h1 {
 		font-size: 16px;
 		font-weight: bold;
 	}
-	#create_note textarea {
-		height: 50px;
-		width: 150px;
-	}
 	#create_note input[type="submit"] {
 		background-color: yellow;
 		height: 20px;
 		width: 150px;
 	}
-
-
+#note_description {
+	height: 150px;
+	width: 150px;
+}
