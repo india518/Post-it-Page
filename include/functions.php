@@ -3,7 +3,7 @@
 	function create_note($title, $note_text)
 	{
 		$clean_title = mysql_real_escape_string($title);
-		$clean_note_text = mysql_real_escape_string($note);
+		$clean_note_text = mysql_real_escape_string($note_text);
 		$create_note_query = "INSERT INTO posts (title, description, created_at) VALUES ('{$clean_title}', '{$clean_note_text}', NOW())";
 		mysql_query($create_note_query);
 		return TRUE; //don't know if we really need this or not...
