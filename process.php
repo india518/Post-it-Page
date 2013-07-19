@@ -37,8 +37,6 @@
 	}
 
 	//eventually, validate the input to make sure it's not empty:
-	//validate_note($_POST["note_description"])
-
-	//Note that we don't want this validation to trigger an error message
-	// on page load. Will have to figure out how to deal with that.
+	// What would be nice is to allow a blank title, or a blank 
+	// description, but not both.
 ?>

@@ -41,9 +41,6 @@
 						},
 						"json"	//data format
 					);
-					//re-bind event handlers:
-					//$(".note_body").on("click", "p", make_edit_form());
-					//don't cause a page reload!
 					return false;
 				});
 
@@ -63,7 +60,6 @@
 				//for making existing notes edit-able
 				$(document).on("click", ".note_body", function(){
 					$note_id = $(this).data("note_id");
-					//alert("you clicked note " + $note_id);
 					//build an html string for the edit form
 					$edit_form = "<form class='edit_form' action='process.php' method='post'>";
 					$edit_form += "	<textarea class='edit_note_body' name='note_description'>" + $(this).text() + "</textarea>";
@@ -81,7 +77,7 @@
 		<div id="container">
 			<h1>My Posted Notes:</h1>
 			<div id="note_container">
-				<!-- This will only run once, on page load -->
+				<!-- Run once, on page load -->
 				<?= display_notes() ?>
 			</div>
 			<div class="clear"></div>
