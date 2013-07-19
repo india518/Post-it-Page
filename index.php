@@ -15,6 +15,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+
 				$("#create_note").submit(function(){
 					$.post(
 						$(this).attr("action"), //URL to send data
@@ -30,7 +31,24 @@
 					// document.getElementById("create_note").reset();
 					return false;
 				});
-				$("#note_container").on("submit", "form", function(){
+
+				$(document).on("submit", ".delete_form", function(){
+					$.post(
+						$(this).attr("action"), //URL to send data
+						$(this).serialize(), //the data being sent
+						function(data){
+							$("#note_container").html(data);
+						},
+						"json"	//data format
+					);
+					//re-bind event handlers:
+					//$(".note_body").on("click", "p", make_edit_form());
+					//don't cause a page reload!
+					return false;
+				});
+
+				//submit an edit
+				$(document).on("submit", ".edit_form", function(){
 					$.post(
 						$(this).attr("action"), //URL to send data
 						$(this).serialize(), //the data being sent
@@ -41,12 +59,13 @@
 					);
 					return false;
 				});
+
 				//for making existing notes edit-able
-				$(".note_body").on("click", function(){
+				$(document).on("click", ".note_body", function(){
 					$note_id = $(this).data("note_id");
 					//alert("you clicked note " + $note_id);
 					//build an html string for the edit form
-					$edit_form = "<form action='process.php' method='post'>";
+					$edit_form = "<form class='edit_form' action='process.php' method='post'>";
 					$edit_form += "	<textarea class='edit_note_body' name='note_description'>" + $(this).text() + "</textarea>";
 					$edit_form += "	<input type='hidden' name='action' value='edit' />";
 					$edit_form += "	<input type='hidden' name='note_id' value=" + $note_id + " />";
@@ -55,7 +74,6 @@
 					//change this particular paragraph to the edit form
 					$(this).replaceWith($edit_form);
 				});
-
 			});
 		</script>
 	</head>
